@@ -1,6 +1,31 @@
+"use client";
 import { resumeData } from "@/data/resume";
+import { useState } from "react";
 
 export default function Contact() {
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('submitting');
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString(),
+      });
+      setStatus('success');
+      form.reset();
+    } catch (error) {
+      console.error(error);
+      setStatus('error');
+    }
+  };
+
   return (
     <section className="bg-black text-white py-20" id="contact">
       <div className="container mx-auto px-6">
@@ -18,84 +43,118 @@ export default function Contact() {
             <div className="bg-gray-900/50 p-8 rounded-2xl border border-gray-800 backdrop-blur-sm">
               <h3 className="text-xl font-semibold mb-6">Send a message</h3>
               
-              <form 
-                name="contact" 
-                method="POST" 
-                data-netlify="true"
-                className="space-y-6"
-              >
-                {/* Netlify Form Handling */}
-                <input type="hidden" name="form-name" value="contact" />
-
-                {/* Name Field */}
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium text-gray-300">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="John Doe"
-                    required
-                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 transition-colors text-gray-200 placeholder-gray-500"
-                  />
-                </div>
-
-                {/* Email Field */}
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium text-gray-300">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="john@example.com"
-                    required
-                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 transition-colors text-gray-200 placeholder-gray-500"
-                  />
-                </div>
-
-                {/* Message Field */}
-                <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium text-gray-300">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={4}
-                    placeholder="Tell me about your project..."
-                    required
-                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 transition-colors text-gray-200 placeholder-gray-500 resize-none"
-                  ></textarea>
-                </div>
-
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
-                >
-                  <svg 
-                    className="w-5 h-5" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
+              {status === 'success' ? (
+                <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-6 text-center">
+                  <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                  <h4 className="text-xl font-bold text-white mb-2">Message Sent!</h4>
+                  <p className="text-gray-300">Thanks for reaching out. I'll get back to you soon.</p>
+                  <button 
+                    onClick={() => setStatus('idle')}
+                    className="mt-6 text-yellow-400 hover:text-yellow-300 font-medium"
                   >
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      strokeWidth="2" 
-                      d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                    Send another message
+                  </button>
+                </div>
+              ) : (
+                <form 
+                  name="contact" 
+                  method="POST" 
+                  data-netlify="true"
+                  onSubmit={handleSubmit}
+                  className="space-y-6"
+                >
+                  {/* Netlify Form Handling */}
+                  <input type="hidden" name="form-name" value="contact" />
+
+                  {/* Name Field */}
+                  <div className="space-y-2">
+                    <label htmlFor="name" className="text-sm font-medium text-gray-300">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      placeholder="John Doe"
+                      required
+                      className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 transition-colors text-gray-200 placeholder-gray-500"
                     />
-                  </svg>
-                  Send Message
-                </button>
-              </form>
+                  </div>
+
+                  {/* Email Field */}
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-sm font-medium text-gray-300">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="john@example.com"
+                      required
+                      className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 transition-colors text-gray-200 placeholder-gray-500"
+                    />
+                  </div>
+
+                  {/* Message Field */}
+                  <div className="space-y-2">
+                    <label htmlFor="message" className="text-sm font-medium text-gray-300">
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={4}
+                      placeholder="Tell me about your project..."
+                      required
+                      className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 transition-colors text-gray-200 placeholder-gray-500 resize-none"
+                    ></textarea>
+                  </div>
+
+                  {/* Error Message */}
+                  {status === 'error' && (
+                    <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm">
+                      Something went wrong. Please try again later.
+                    </div>
+                  )}
+
+                  {/* Submit Button */}
+                  <button
+                    type="submit"
+                    disabled={status === 'submitting'}
+                    className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 rounded-lg transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {status === 'submitting' ? (
+                      <svg className="animate-spin h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                    ) : (
+                      <svg 
+                        className="w-5 h-5" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round" 
+                          strokeWidth="2" 
+                          d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                        />
+                      </svg>
+                    )}
+                    {status === 'submitting' ? 'Sending...' : 'Send Message'}
+                  </button>
+                </form>
+              )}
             </div>
 
-            {/* Contact Info Side (Keeping the existing info but styled nicely) */}
+            {/* Contact Info Side */}
             <div className="space-y-8 flex flex-col justify-center">
               <div className="space-y-6">
                 <a 
