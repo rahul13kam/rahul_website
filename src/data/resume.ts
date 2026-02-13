@@ -1,6 +1,6 @@
 export const resumeData = {
   personalInfo: {
-    name: "Rahul Kam",
+    name: "Rahul Kamble",
     role: "Salesforce Developer & Software Engineer",
     contact: {
       phone: "+91-8263069830",
