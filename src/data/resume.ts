@@ -9,7 +9,7 @@ export const resumeData = {
     },
     social: {
       linkedin: "https://www.linkedin.com/in/rahul-kamble-327782221", // Updated
-      github: "#",   // Placeholder
+      github: "https://github.com/rahul13kam",   // Placeholder
       portfolio: "#", // Placeholder
       trailblazer: "https://trailblazer.me/id/m6rywkp9t3p3a1q7yi" // Placeholder based on input
     },
