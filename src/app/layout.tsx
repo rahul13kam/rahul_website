@@ -13,11 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Rahul Kamble - Salesforce Developer & Software Engineer',
-  description: 'Portfolio of Rahul Kamble, Salesforce Developer and Software Engineer based in Hyderabad, India',
+  title: 'Rahul Kamble - Software Engineer & Salesforce Developer',
+  description: 'Portfolio of Rahul Kamble, Software Engineer and Salesforce Developer based in Hyderabad, India',
   openGraph: {
-    title: 'Rahul Kamble - Salesforce Developer',
-    description: 'Portfolio of Rahul Kamble, Salesforce Developer and Software Engineer',
+    title: 'Rahul Kamble - Software Engineer & Salesforce Developer',
+    description: 'Portfolio of Rahul Kamble, Software Engineer and Salesforce Developer',
     url: 'https://rahulkamble.online',
     siteName: 'Rahul Kamble Portfolio',
     images: [
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Rahul Kamble - Salesforce Developer',
-    description: 'Portfolio of Rahul Kamble, Salesforce Developer and Software Engineer',
+    title: 'Rahul Kamble - Software Engineer & Salesforce Developer',
+    description: 'Portfolio of Rahul Kamble, Software Engineer and Salesforce Developer',
     images: ['https://rahulkamble.online/og-image.jpg'],
   },
 };
