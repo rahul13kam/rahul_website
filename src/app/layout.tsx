@@ -16,7 +16,26 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://rahulkamble.online'),
   title: 'Rahul Kamble - Senior Software Engineer & Salesforce Developer',
   description: 'Rahul Kamble — Senior Software Engineer & Salesforce Developer with 4+ years of experience in Angular, React, Spring Boot, Apex, and LWC. Based in Hyderabad, India.',
-  keywords: ['Rahul Kamble', 'Senior Software Engineer', 'Salesforce Developer', 'Full Stack Developer', 'Angular', 'React', 'Spring Boot', 'Apex', 'LWC', 'Hyderabad'],
+  keywords: [
+    'Rahul Kamble', 
+    'Rahul Kamble Software Engineer', 
+    'Rahul Kamble Salesforce Developer', 
+    'Senior Software Engineer', 
+    'Salesforce Developer', 
+    'UI Developer', 
+    'Frontend Developer', 
+    'Full Stack Developer', 
+    'Web Developer',
+    'Angular Developer', 
+    'React Developer', 
+    'Spring Boot Developer', 
+    'Salesforce Apex', 
+    'LWC Developer', 
+    'Hyderabad Software Engineer',
+    'Salesforce Professional',
+    'Javascript Developer',
+    'Typescript Developer'
+  ],
   authors: [{ name: 'Rahul Kamble' }],
   creator: 'Rahul Kamble',
   publisher: 'Rahul Kamble',
@@ -63,21 +82,34 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Rahul Kamble',
-  jobTitle: 'Senior Software Engineer & Salesforce Developer',
+  alternateName: 'Rahul Kamble Online',
+  jobTitle: 'Senior Software Engineer, Salesforce Developer, UI Developer',
   url: 'https://rahulkamble.online',
   image: 'https://rahulkamble.online/profile.png',
+  description: 'Senior Software Engineer and Salesforce Developer with 4+ years of experience. Expert in Angular, React, Spring Boot, and Salesforce LWC. Professional UI/UX Developer and Full Stack Engineer based in Hyderabad.',
+  knowsAbout: [
+    'Software Engineering',
+    'Salesforce Development',
+    'Web Development',
+    'UI Development',
+    'Frontend Development',
+    'Angular',
+    'React',
+    'Spring Boot',
+    'Salesforce Apex',
+    'Lightning Web Components'
+  ],
   sameAs: [
     'https://www.linkedin.com/in/rahul-kamble-327782221',
     'https://trailblazer.me/id/m6rywkp9t3p3a1q7yi',
-    // Add other social links if available
+    'https://github.com/rahul13kam'
   ],
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Hyderabad',
     addressRegion: 'Telangana',
     addressCountry: 'India'
-  },
-  description: 'Senior Software Engineer & Salesforce Developer with 4+ years of experience in building scalable web applications using Angular, React.js, and Spring Boot. Also an aspiring Salesforce Developer with knowledge of Apex, LWC, SOQL, and Salesforce Administration.'
+  }
 };
 
 export default function RootLayout({
