@@ -36,6 +36,11 @@ export const metadata: Metadata = {
     'Javascript Developer',
     'Typescript Developer'
   ],
+  icons: {
+    icon: '/icon.png',
+    shortcut: '/icon.png',
+    apple: '/icon.png',
+  },
   authors: [{ name: 'Rahul Kamble' }],
   creator: 'Rahul Kamble',
   publisher: 'Rahul Kamble',
