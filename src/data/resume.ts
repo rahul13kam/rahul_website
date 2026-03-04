@@ -1,7 +1,7 @@
 export const resumeData = {
   personalInfo: {
     name: "Rahul Kamble",
-    role: "Software Engineer & Salesforce Developer",
+    role: "Senior Software Engineer & Salesforce Developer",
     contact: {
       phone: "+91-8263069830",
       email: "Rahulwardha07@gmail.com",
@@ -13,7 +13,7 @@ export const resumeData = {
       portfolio: "#", // Placeholder
       trailblazer: "https://trailblazer.me/id/m6rywkp9t3p3a1q7yi" // Placeholder based on input
     },
-    summary: "Aspiring Salesforce Developer with knowledge of Apex, Lightning Web Components (LWC), SOQL, and Salesforce Administration. Bringing 4+ years of experience in building scalable web applications and UI components using Angular, React.js, and Spring Boot. Skilled in OOP, Git, and Agile methodologies, with strong problem-solving skills, eager to apply web development expertise to Salesforce platform development."
+    summary: "Senior Software Engineer & Salesforce Developer with 4+ years of experience in building scalable web applications and UI components using Angular, React.js, and Spring Boot. Also an aspiring Salesforce Developer with knowledge of Apex, Lightning Web Components (LWC), SOQL, and Salesforce Administration. Skilled in OOP, Git, and Agile methodologies, with strong problem-solving skills, eager to apply web development expertise to Salesforce platform development."
   },
   salesforceCertifications: [
     {
@@ -31,17 +31,30 @@ export const resumeData = {
     }
   ],
   skills: {
+    "Frontend": ["Angular", "React.js", "Next.js", "Lightning Design System", "HTML5", "CSS3", "JavaScript", "TypeScript"],
+    "Backend": ["Spring Boot", "NestJS", "Node.js", "Express.js", "JSP", "Servlets"],
+    "Databases": ["MySQL", "SQL", "Firebase", "MongoDB", "SOQL", "SOSL"],
+    "Tools & Methods": ["Git", "VS Code", "JIRA", "Azure", "Trello", "Postman", "Salesforce CLI", "Agile", "Scrum"],
     "Salesforce Core": ["Apex", "Visualforce", "Lightning Web Components (LWC)", "Aura Components", "Sales Cloud", "Service Cloud"],
     "Salesforce Config": ["Custom Objects", "Fields", "Workflows", "Process Builder", "Flow Builder", "Validation Rules", "Page Layouts"],
     "Salesforce Automation": ["Lightning Flows", "Screen Flows", "Record-Triggered Flows", "Workflow Rules", "Email Automation"],
     "Apex Development": ["Triggers", "Batch Apex", "Scheduled Apex", "Queueable Apex", "Future Methods", "Test Classes"],
-    "Security & Integration": ["OWD Settings", "Profiles", "Permission Sets", "Sharing Rules", "REST APIs", "SOAP APIs", "LMS Integration"],
-    "Frontend": ["Angular", "React.js", "Next.js", "Lightning Design System", "HTML5", "CSS3", "JavaScript", "TypeScript"],
-    "Backend": ["Spring Boot", "NestJS", "Node.js", "Express.js", "JSP", "Servlets"],
-    "Databases": ["MySQL", "SQL", "Firebase", "MongoDB", "SOQL", "SOSL"],
-    "Tools & Methods": ["Git", "VS Code", "JIRA", "Azure", "Trello", "Postman", "Salesforce CLI", "Agile", "Scrum"]
+    "Security & Integration": ["OWD Settings", "Profiles", "Permission Sets", "Sharing Rules", "REST APIs", "SOAP APIs", "LMS Integration"]
   },
   experience: [
+    {
+      role: "Senior Software Engineer",
+      company: "Custom Furnish",
+      location: "Hyderabad, India",
+      period: "Sept 2025 – Present",
+      description: [
+        "Led development of modular furniture e-commerce platform with Angular, integrating RESTful APIs for real-time data sync.",
+        "Designed reusable components and services to improve code modularity and maintainability across the application.",
+        "Optimized application performance using lazy loading and AOT compilation, reducing load times by 40%.",
+        "Conducted comprehensive unit testing with Jasmine and Karma ensuring 85%+ code coverage.",
+        "Mentored junior developers on best practices and conducted code reviews to maintain development standards."
+      ]
+    },
     {
       role: "Salesforce Developer (Trainee)",
       company: "Digital-Lync",
@@ -61,19 +74,6 @@ export const resumeData = {
       ]
     },
     {
-      role: "Senior Software Engineer",
-      company: "Custom Furnish",
-      location: "Hyderabad, India",
-      period: "Sept 2025 – Present",
-      description: [
-        "Led development of modular furniture e-commerce platform with Angular, integrating RESTful APIs for real-time data sync.",
-        "Designed reusable components and services to improve code modularity and maintainability across the application.",
-        "Optimized application performance using lazy loading and AOT compilation, reducing load times by 40%.",
-        "Conducted comprehensive unit testing with Jasmine and Karma ensuring 85%+ code coverage.",
-        "Mentored junior developers on best practices and conducted code reviews to maintain development standards."
-      ]
-    },
-    {
       role: "Software Development Engineer",
       company: "Infinity Learn (Sri Chaitanya Group)",
       location: "Hyderabad, India",
@@ -89,30 +89,6 @@ export const resumeData = {
     }
   ],
   projects: [
-    {
-      title: "Sales & Service Cloud Implementation",
-      tech: "Apex, Lightning, Visualforce, REST API",
-      description: "Implemented end-to-end Salesforce solution for Digital-Lync with custom objects, automation, and third-party integrations. Configured Sales Cloud with custom reports, dashboards, and automated lead management workflows.",
-      category: "Salesforce"
-    },
-    {
-      title: "Kona LMS Integration",
-      tech: "Salesforce, REST API, Middleware, Custom Objects",
-      description: "Built bidirectional integration between Salesforce and Kona Learning Management System using REST APIs. Developed custom Apex controllers for real-time data synchronization between platforms.",
-      category: "Salesforce"
-    },
-    {
-      title: "Lightning Web Components Suite",
-      tech: "LWC, JavaScript, Apex, Lightning Design System",
-      description: "Created reusable Lightning Web Components for student enrollment, course management, and performance tracking. Implemented wire services and imperative Apex calls for efficient data retrieval and DOM manipulation.",
-      category: "Salesforce"
-    },
-    {
-      title: "Automated Lead Management System",
-      tech: "Process Builder, Flow Builder, Apex Triggers",
-      description: "Designed automated lead routing and assignment based on geography, course interest, and lead score. Implemented email automation and custom notifications for sales team increasing conversion by 25%.",
-      category: "Salesforce"
-    },
     {
       title: "Meta – Online Class Platform",
       tech: "Angular, Firebase, Spring Boot, MySQL",
@@ -137,6 +113,30 @@ export const resumeData = {
       tech: "NestJS, Material UI, CSS3",
       description: "Implemented real-time performance tracking and automated PDF report generation with weak area detection algorithms.",
       category: "Web Development"
+    },
+    {
+      title: "Sales & Service Cloud Implementation",
+      tech: "Apex, Lightning, Visualforce, REST API",
+      description: "Implemented end-to-end Salesforce solution for Digital-Lync with custom objects, automation, and third-party integrations. Configured Sales Cloud with custom reports, dashboards, and automated lead management workflows.",
+      category: "Salesforce"
+    },
+    {
+      title: "Kona LMS Integration",
+      tech: "Salesforce, REST API, Middleware, Custom Objects",
+      description: "Built bidirectional integration between Salesforce and Kona Learning Management System using REST APIs. Developed custom Apex controllers for real-time data synchronization between platforms.",
+      category: "Salesforce"
+    },
+    {
+      title: "Lightning Web Components Suite",
+      tech: "LWC, JavaScript, Apex, Lightning Design System",
+      description: "Created reusable Lightning Web Components for student enrollment, course management, and performance tracking. Implemented wire services and imperative Apex calls for efficient data retrieval and DOM manipulation.",
+      category: "Salesforce"
+    },
+    {
+      title: "Automated Lead Management System",
+      tech: "Process Builder, Flow Builder, Apex Triggers",
+      description: "Designed automated lead routing and assignment based on geography, course interest, and lead score. Implemented email automation and custom notifications for sales team increasing conversion by 25%.",
+      category: "Salesforce"
     }
   ],
   education: [

@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://rahulkamble.online'),
-  title: 'Rahul Kamble - Software Engineer & Salesforce Developer',
-  description: 'Rahul Kamble — Software Engineer & Salesforce Developer with 4+ years of experience in Angular, React, Spring Boot, Apex, and LWC. Based in Hyderabad, India.',
-  keywords: ['Rahul Kamble', 'Salesforce Developer', 'Software Engineer', 'Full Stack Developer', 'Angular', 'React', 'Spring Boot', 'Apex', 'LWC', 'Hyderabad'],
+  title: 'Rahul Kamble - Senior Software Engineer & Salesforce Developer',
+  description: 'Rahul Kamble — Senior Software Engineer & Salesforce Developer with 4+ years of experience in Angular, React, Spring Boot, Apex, and LWC. Based in Hyderabad, India.',
+  keywords: ['Rahul Kamble', 'Senior Software Engineer', 'Salesforce Developer', 'Full Stack Developer', 'Angular', 'React', 'Spring Boot', 'Apex', 'LWC', 'Hyderabad'],
   authors: [{ name: 'Rahul Kamble' }],
   creator: 'Rahul Kamble',
   publisher: 'Rahul Kamble',
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Rahul Kamble - Software Engineer & Salesforce Developer',
-    description: 'Rahul Kamble — Software Engineer & Salesforce Developer with 4+ years of experience in Angular, React, Spring Boot, Apex, and LWC. Based in Hyderabad, India.',
+    title: 'Rahul Kamble - Senior Software Engineer & Salesforce Developer',
+    description: 'Rahul Kamble — Senior Software Engineer & Salesforce Developer with 4+ years of experience in Angular, React, Spring Boot, Apex, and LWC. Based in Hyderabad, India.',
     url: 'https://rahulkamble.online',
     siteName: 'Rahul Kamble Portfolio',
     images: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Rahul Kamble - Software Engineer & Salesforce Developer',
+        alt: 'Rahul Kamble - Senior Software Engineer & Salesforce Developer',
       },
     ],
     locale: 'en_US',
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Rahul Kamble - Software Engineer & Salesforce Developer',
-    description: 'Rahul Kamble — Software Engineer & Salesforce Developer with 4+ years of experience in Angular, React, Spring Boot, Apex, and LWC. Based in Hyderabad, India.',
+    title: 'Rahul Kamble - Senior Software Engineer & Salesforce Developer',
+    description: 'Rahul Kamble — Senior Software Engineer & Salesforce Developer with 4+ years of experience in Angular, React, Spring Boot, Apex, and LWC. Based in Hyderabad, India.',
     images: ['/og-image.jpg'],
     creator: '@RahulKamble', 
   },
@@ -63,7 +63,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Rahul Kamble',
-  jobTitle: 'Software Engineer & Salesforce Developer',
+  jobTitle: 'Senior Software Engineer & Salesforce Developer',
   url: 'https://rahulkamble.online',
   image: 'https://rahulkamble.online/profile.png',
   sameAs: [
@@ -77,7 +77,7 @@ const jsonLd = {
     addressRegion: 'Telangana',
     addressCountry: 'India'
   },
-  description: 'Aspiring Salesforce Developer with knowledge of Apex, Lightning Web Components (LWC), SOQL, and Salesforce Administration. Bringing 4+ years of experience in building scalable web applications.'
+  description: 'Senior Software Engineer & Salesforce Developer with 4+ years of experience in building scalable web applications using Angular, React.js, and Spring Boot. Also an aspiring Salesforce Developer with knowledge of Apex, LWC, SOQL, and Salesforce Administration.'
 };
 
 export default function RootLayout({
