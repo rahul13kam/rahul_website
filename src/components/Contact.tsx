@@ -1,23 +1,29 @@
 "use client";
 import { resumeData } from "@/data/resume";
+import emailjs from "@emailjs/browser";
 import { useState } from "react";
+
+const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
 export default function Contact() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus('submitting');
 
+    if (!serviceId || !templateId || !publicKey) {
+      console.error("EmailJS env vars are missing. Copy env.example to .env.local");
+      setStatus('error');
+      return;
+    }
+
+    setStatus('submitting');
     const form = e.currentTarget;
-    const formData = new FormData(form);
 
     try {
-      await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as any).toString(),
-      });
+      await emailjs.sendForm(serviceId, templateId, form, { publicKey });
       setStatus('success');
       form.reset();
     } catch (error) {
@@ -60,16 +66,7 @@ export default function Contact() {
                   </button>
                 </div>
               ) : (
-                <form 
-                  name="contact" 
-                  method="POST" 
-                  data-netlify="true"
-                  onSubmit={handleSubmit}
-                  className="space-y-6"
-                >
-                  {/* Netlify Form Handling */}
-                  <input type="hidden" name="form-name" value="contact" />
-
+                <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Name Field */}
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium text-gray-300">
