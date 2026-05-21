@@ -25,10 +25,11 @@ export default function Hero() {
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+            <span className="sr-only">Rahul Kamble - </span>
             {resumeData.personalInfo.name}
           </h1>
           <h2 className="text-2xl md:text-3xl text-blue-300 mb-8 font-light">
-            {resumeData.personalInfo.role}
+            Senior Software Engineer | Salesforce Developer | UI Specialist
           </h2>
           
           <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-10 text-gray-300 text-sm md:text-base">

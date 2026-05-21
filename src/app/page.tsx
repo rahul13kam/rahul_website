@@ -12,9 +12,9 @@ export default function Home() {
     <main className="min-h-screen">
       <Hero />
       <Summary />
-      <SalesforceCertifications />
       <Skills />
       <Experience />
+      <SalesforceCertifications />
       <Projects />
       <Education />
       <Contact />
