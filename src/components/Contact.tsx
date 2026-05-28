@@ -3,27 +3,33 @@ import { resumeData } from "@/data/resume";
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
 
-const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-
 export default function Contact() {
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error' | 'config_error'>('idle');
+
+  const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID?.trim();
+  const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID?.trim();
+  const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY?.trim();
+  const isEmailConfigured = Boolean(serviceId && templateId && publicKey);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!serviceId || !templateId || !publicKey) {
-      console.error("EmailJS env vars are missing. Copy env.example to .env.local");
-      setStatus('error');
+    if (!isEmailConfigured) {
+      console.error(
+        "EmailJS env vars are missing. Set NEXT_PUBLIC_EMAILJS_SERVICE_ID, NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, and NEXT_PUBLIC_EMAILJS_PUBLIC_KEY in .env.local (local) or hosting environment variables (production), then restart/redeploy."
+      );
+      setStatus('config_error');
       return;
     }
+    const finalServiceId = serviceId as string;
+    const finalTemplateId = templateId as string;
+    const finalPublicKey = publicKey as string;
 
     setStatus('submitting');
     const form = e.currentTarget;
 
     try {
-      await emailjs.sendForm(serviceId, templateId, form, { publicKey });
+      await emailjs.sendForm(finalServiceId, finalTemplateId, form, { publicKey: finalPublicKey });
       setStatus('success');
       form.reset();
     } catch (error) {
@@ -57,7 +63,7 @@ export default function Contact() {
                     </svg>
                   </div>
                   <h4 className="text-xl font-bold text-white mb-2">Message Sent!</h4>
-                  <p className="text-gray-300">Thanks for reaching out. I'll get back to you soon.</p>
+                  <p className="text-gray-300">Thanks for reaching out. I&apos;ll get back to you soon.</p>
                   <button 
                     onClick={() => setStatus('idle')}
                     className="mt-6 text-blue-600 hover:text-blue-500 font-medium"
@@ -113,16 +119,18 @@ export default function Contact() {
                   </div>
 
                   {/* Error Message */}
-                  {status === 'error' && (
+                  {(status === 'error' || status === 'config_error') && (
                     <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm">
-                      Something went wrong. Please try again later.
+                      {status === 'config_error'
+                        ? 'Email service is not configured yet. Please set EmailJS environment variables and restart.'
+                        : 'Something went wrong while sending. Please try again later.'}
                     </div>
                   )}
 
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    disabled={status === 'submitting'}
+                    disabled={status === 'submitting' || !isEmailConfigured}
                     className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {status === 'submitting' ? (
