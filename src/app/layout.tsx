@@ -13,8 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://rahulkamble.online'),
-  title: 'Rahul Kamble - Senior Software Engineer & Salesforce Developer',
+  metadataBase: new URL("https://rahulkamble.online"),
+  title: {
+    default: "Rahul Kamble | Senior Software Engineer & Salesforce Developer",
+    template: "%s | Rahul Kamble",
+  },
   description: 'Rahul Kamble — Senior Software Engineer & Salesforce Developer with 4+ years of experience in Angular, React, Spring Boot, Apex, and LWC. Based in Hyderabad, India.',
   keywords: [
     'Rahul Kamble', 
@@ -48,15 +51,15 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Rahul Kamble - Senior Software Engineer & Salesforce Developer',
+    title: "Rahul Kamble | Senior Software Engineer & Salesforce Developer",
     description: 'Rahul Kamble — Senior Software Engineer & Salesforce Developer with 4+ years of experience in Angular, React, Spring Boot, Apex, and LWC. Based in Hyderabad, India.',
     url: 'https://rahulkamble.online',
     siteName: 'Rahul Kamble Portfolio',
     images: [
       {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
+        url: '/profile.png',
+        width: 512,
+        height: 512,
         alt: 'Rahul Kamble - Senior Software Engineer & Salesforce Developer',
       },
     ],
@@ -65,10 +68,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Rahul Kamble - Senior Software Engineer & Salesforce Developer',
+    title: "Rahul Kamble | Senior Software Engineer & Salesforce Developer",
     description: 'Rahul Kamble — Senior Software Engineer & Salesforce Developer with 4+ years of experience in Angular, React, Spring Boot, Apex, and LWC. Based in Hyderabad, India.',
-    images: ['/og-image.jpg'],
-    creator: '@RahulKamble', 
+    images: ['/profile.png'],
   },
   robots: {
     index: true,
@@ -83,7 +85,7 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
+const personJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Rahul Kamble',
@@ -117,6 +119,32 @@ const jsonLd = {
   }
 };
 
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Rahul Kamble Portfolio",
+  url: "https://rahulkamble.online",
+  inLanguage: "en",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: "https://rahulkamble.online/?q={search_term_string}",
+    "query-input": "required name=search_term_string",
+  },
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Rahul Kamble",
+  url: "https://rahulkamble.online",
+  logo: "https://rahulkamble.online/icon.png",
+  sameAs: [
+    "https://www.linkedin.com/in/rahul-kamble-327782221",
+    "https://github.com/rahul13kam",
+    "https://trailblazer.me/id/m6rywkp9t3p3a1q7yi",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -129,7 +157,15 @@ export default function RootLayout({
       >
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
         {children}
       </body>

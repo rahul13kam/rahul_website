@@ -45,20 +45,20 @@ export default function Contact() {
   };
 
   return (
-    <section className="bg-black text-white py-20" id="contact">
-      <div className="container mx-auto px-6">
+    <section className="bg-black text-white py-12 sm:py-16 md:py-20" id="contact">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
           {/* Header Section */}
           <div className="mb-12">
-            <h2 className="text-4xl font-bold mb-4">Contact</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Contact</h2>
             <p className="text-gray-400 text-lg">
               Have a project in mind or just want to chat? Drop me a message.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             {/* Contact Form Card */}
-            <div className="bg-gray-900/50 p-8 rounded-2xl border border-gray-800 backdrop-blur-sm">
+            <div className="bg-gray-900/50 p-5 sm:p-8 rounded-2xl border border-gray-800 backdrop-blur-sm">
               <h3 className="text-xl font-semibold mb-6">Send a message</h3>
               
               {status === 'success' ? (
@@ -177,7 +177,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="text-lg font-medium text-white mb-1">Email</h4>
-                    <p className="text-gray-400">{resumeData.personalInfo.contact.email}</p>
+                    <p className="text-gray-400 break-all">{resumeData.personalInfo.contact.email}</p>
                   </div>
                 </a>
 

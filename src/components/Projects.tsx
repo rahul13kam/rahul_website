@@ -13,17 +13,17 @@ export default function Projects() {
     : resumeData.projects.filter(p => p.category === filter);
 
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">Featured Projects</h2>
+    <section className="py-12 sm:py-16 md:py-20 bg-white">
+      <div className="container mx-auto px-4 sm:px-6">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 text-gray-800">Featured Projects</h2>
         
         {/* Filter Tabs */}
-        <div className="flex justify-center mb-12 gap-4">
+        <div className="flex flex-wrap justify-center mb-12 gap-3 sm:gap-4">
           {categories.map(category => (
             <button
               key={category}
               onClick={() => setFilter(category)}
-              className={`px-6 py-2 rounded-full font-medium transition-all ${
+              className={`px-4 sm:px-6 py-2 rounded-full font-medium text-sm sm:text-base transition-all ${
                 filter === category 
                   ? "bg-blue-600 text-white shadow-md" 
                   : "bg-gray-100 text-gray-600 hover:bg-gray-200"
@@ -34,9 +34,9 @@ export default function Projects() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {filteredProjects.map((project, index) => (
-            <div key={index} className="group border border-gray-100 rounded-xl p-6 hover:shadow-xl transition-all duration-300 bg-white flex flex-col h-full hover:-translate-y-1 relative overflow-hidden">
+            <div key={index} className="group border border-gray-100 rounded-xl p-5 sm:p-6 hover:shadow-xl transition-all duration-300 bg-white flex flex-col h-full hover:-translate-y-1 relative overflow-hidden">
               {/* Category Badge */}
               <div className="absolute top-0 right-0 mt-4 mr-4">
                 <span className={`text-xs font-bold px-2 py-1 rounded uppercase tracking-wide ${
@@ -78,7 +78,7 @@ export default function Projects() {
                 )}
               </div>
               
-              <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-blue-600 transition-colors pr-16">{project.title}</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 group-hover:text-blue-600 transition-colors pr-12 sm:pr-16">{project.title}</h3>
               
               <p className="text-gray-600 mb-6 flex-grow leading-relaxed text-sm">
                 {project.description}
