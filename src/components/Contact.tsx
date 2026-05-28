@@ -3,12 +3,18 @@ import { resumeData } from "@/data/resume";
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
 
+const EMAILJS_FALLBACK = {
+  serviceId: "service_ghf9y49",
+  templateId: "template_5m7g21b",
+  publicKey: "0e9awzIAPptdNqLkI",
+};
+
 export default function Contact() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error' | 'config_error'>('idle');
 
-  const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID?.trim();
-  const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID?.trim();
-  const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY?.trim();
+  const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID?.trim() || EMAILJS_FALLBACK.serviceId;
+  const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID?.trim() || EMAILJS_FALLBACK.templateId;
+  const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY?.trim() || EMAILJS_FALLBACK.publicKey;
   const isEmailConfigured = Boolean(serviceId && templateId && publicKey);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
